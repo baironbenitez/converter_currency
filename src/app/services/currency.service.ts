@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
-import { Converter, Convertion, Currency } from '../interfaces/currency.interfac';
+import { Converter, Convertion, Currency } from '../interfaces/currency.interface';
 
 @Injectable({
   providedIn: 'root'
