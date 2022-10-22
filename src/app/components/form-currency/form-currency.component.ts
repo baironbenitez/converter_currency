@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Convertion, Currency } from '@Interfaces/currency.interface';
 import { CurrencyService } from '@Services/currency.service';
-import { validateEqual } from 'src/app/utils/validate-equals';
+import { validateEqual } from '@Utils/validate-equals';
 @Component({
   selector: 'app-form-currency',
   templateUrl: './form-currency.component.html',
@@ -13,6 +13,7 @@ export class FormCurrencyComponent implements OnInit {
   showCurrency = false;
   currency!:Convertion;
   submit = false;
+  showErrors = false;
 
   form = new FormGroup({
     amount: new FormControl(null, [Validators.required, Validators.min(1)]),
@@ -31,7 +32,10 @@ export class FormCurrencyComponent implements OnInit {
   }
 
   converter(): void {
-    if (this.form.valid && !this.submit) {
+    if (this.form.invalid) {
+      this.showErrors = true;
+    }else if (this.form.valid && !this.submit) {
+      this.showErrors = false;
       const value: any = this.form.value;
       this.currencyService.converter(value).subscribe(res => {
         this.currency = res;

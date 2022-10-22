@@ -9,6 +9,9 @@
       ],
       "@Services/*":[
         "src/app/services/*"
+      ],
+      "@Utils/*":[
+        "src/app/utils/*"
       ]
     },
     "outDir": "./dist/out-tsc",
