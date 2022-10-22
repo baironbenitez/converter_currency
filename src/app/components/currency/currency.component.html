@@ -1,0 +1,13 @@
+<ngb-alert type="success" (closed)="close()" *ngIf="currency">
+    <div class="card text-center border-0">
+      <div class="text-center">
+        <img class="card-img-top w-25" src=".../../../../../assets/icons/currency.svg" alt="">
+      </div>
+      <div class="card-body">
+        <p class="card-title">Moneda original: {{currency.base}}</p>
+        <p class="card-title">Monto original: {{currency.amount}}</p>
+        <p class="card-title">Moneda conversion: {{key}}</p>
+        <p class="card-title">Monto conversion: {{currency.rates[key]}}</p>
+      </div>
+    </div>
+</ngb-alert>

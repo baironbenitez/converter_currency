@@ -1,0 +1,26 @@
+<div class="mx-auto col-11 col-xs-10 col-sm-8 col-md-8 col-lg-6">
+    <app-currency (resetCurrency)="changeShowCurrency(false)" [currency]="currency" *ngIf="showCurrency" [key]="currencyTo"></app-currency>
+    <form [formGroup]="form" (ngSubmit)="converter()" >
+        <div class="form-group mb-4">
+            <label for="amount">Monto</label>
+            <input type="number" formControlName="amount" class="form-control" placeholder="Monto a convertir">
+        </div>
+        <div class="form-group mb-4">
+            <label for="from">Moneda origen</label>
+            <ng-select formControlName="from" notFoundText="No se encontro ninguna moneda" placeholder="Selecciona moneda">
+                <ng-option *ngFor="let curency of currencies" [value]="curency.id">{{curency.name}}</ng-option>
+            </ng-select>
+        </div>
+        <div class="form-group mb-4">
+            <label for="to">Moneda a convertir</label>
+            <ng-select formControlName="to" notFoundText="No se encontro ninguna moneda" placeholder="Selecciona moneda">
+              
+                <ng-option *ngFor="let curency of currencies" [value]="curency.id">{{curency.name}}</ng-option>
+            </ng-select>
+        </div>
+        
+        <div class="d-grid gap-1">
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">convertir</button>
+        </div>
+    </form>
+</div>
