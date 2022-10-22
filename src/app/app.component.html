@@ -1,6 +1,5 @@
-<app-load></app-load>
-
-<div class="container mt-4">
+<app-load *ngIf="load | async"></app-load>
+<div class="container my-4">
   <h1 class="text-center">Convertidor de monedas</h1>
   <app-form-currency [currencies]="currencies"></app-form-currency>
 </div>

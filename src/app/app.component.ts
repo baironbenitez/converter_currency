@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Currency } from '@Interfaces/currency.interface';
 import { CurrencyService } from '@Services/currency.service';
+import { LoadService } from '@Services/load.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,12 @@ import { CurrencyService } from '@Services/currency.service';
 })
 export class AppComponent implements OnInit{
   currencies:Currency[] = [];
+  load = this.loadService.getLoad();
 
-  constructor(private currencyService: CurrencyService){}
+  constructor(
+    private currencyService: CurrencyService,
+    private loadService: LoadService
+  ){}
 
   ngOnInit(): void {
     this.currencyService.getCurrencies().subscribe(res=>{
