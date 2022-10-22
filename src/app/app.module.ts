@@ -8,12 +8,14 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrencyComponent } from './components/currency/currency.component';
+import { LoadComponent } from './components/load/load.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormCurrencyComponent,
-    CurrencyComponent
+    CurrencyComponent,
+    LoadComponent
   ],
   imports: [
     BrowserModule,
